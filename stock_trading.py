@@ -231,6 +231,9 @@ def test_model(env, model):
 
 
 def test_model_multiple(env, models):
+    observations_list = []
+    actions_list = []
+    info_list = []
     observation, info = env.reset()
     done = False
     while not done:
@@ -239,7 +242,11 @@ def test_model_multiple(env, models):
             actions.append(model.predict_single(observation))
         actions = np.array(actions)
         observation, _, done, info = env.step(actions)
-    env.render()
+        observations_list.append(observation)
+        actions_list.append(actions)
+        info_list.append(info)
+    df_performance = env.render()
+    return observations_list, info_list, actions_list, df_performance
 
 
 if __name__ == '__main__':

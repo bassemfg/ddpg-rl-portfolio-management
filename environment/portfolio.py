@@ -60,7 +60,6 @@ class DataGenerator(object):
         assert history.shape[0] == len(abbreviation), 'Number of stock is not consistent'
         import copy
         self.step = 0
-        
         self.steps = steps + 1
         self.window_length = window_length
         self.start_idx = start_idx
@@ -207,6 +206,7 @@ class PortfolioEnv(gym.Env):
         self.window_length = window_length
         self.num_stocks = history.shape[0]
         self.start_idx = start_idx
+        self.df_portfolio_performance = None        
 
         self.src = DataGenerator(history, abbreviation, steps=steps, window_length=window_length, start_idx=start_idx,
                                  start_date=sample_start_date)
@@ -300,7 +300,7 @@ class PortfolioEnv(gym.Env):
         if mode == 'ansi':
             pprint(self.infos[-1])
         elif mode == 'human':
-            self.plot()
+            return self.plot()
             
     def render(self, mode='human', close=False):
         return self._render(mode='human', close=False)
@@ -312,8 +312,9 @@ class PortfolioEnv(gym.Env):
         df_info.set_index('date', inplace=True)
         mdd = max_drawdown(df_info.rate_of_return + 1)
         sharpe_ratio = sharpe(df_info.rate_of_return)
-        title = 'max_drawdown={: 2.2%} sharpe_ratio={: 2.4f}'.format(mdd, sharpe_ratio)
+        title = 'max_drawdown={: 2.2%} sharpe_ratio={: 2.4f}'.format(mdd, sharpe_ratio)       
         df_info[["portfolio_value", "market_value"]].plot(title=title, fig=plt.gcf(), rot=30)
+        
 
 
 class MultiActionPortfolioEnv(PortfolioEnv):
@@ -410,7 +411,9 @@ class MultiActionPortfolioEnv(PortfolioEnv):
     def plot(self):
         df_info = pd.DataFrame(self.infos)
         fig=plt.gcf()
-        title = 'Trading Performance of Various Models'
+        title = 'Trading Performance of Models'
         df_info['date'] = pd.to_datetime(df_info['date'], format='%Y-%m-%d')
         df_info.set_index('date', inplace=True)
+        #print(df_info[self.model_names + ['market_value']])
         df_info[self.model_names + ['market_value']].plot(title=title, fig=fig, rot=30)
+        return df_info[self.model_names + ['market_value']]
