@@ -14,8 +14,8 @@
 
 ## References
 * [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem](https://arxiv.org/abs/1706.10059)
-* The code is inspired by [CSCI 599 deep learning and its applications final project
-](https://github.com/vermouth1992/drl-portfolio-management) 
+* [Continuous control with deep reinforcement learning](https://arxiv.org/abs/1509.02971)
+* The code is inspired by [CSCI 599 deep learning and its applications final project](https://github.com/vermouth1992/drl-portfolio-management) 
 * The environment is inspired by [wassname/rl-portfolio-management](https://github.com/wassname/rl-portfolio-management)
 * DDPG implementation is inspired by [Deep Deterministic Policy Gradients in TensorFlow](http://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html)
 
@@ -30,7 +30,7 @@ To install the required python packges, browse to the code folder then run ```pi
 
 ### Running the tests
 
-ddpg_tests.ipynb is a step by step jupyter notebook showing the performance of the trained agent on unseen stocks. You can run this jupyter notebook directly without having to run the training since the training weights are saved.
+ddpg_tests.ipynb is a step by step jupyter notebook showing the performance of the trained agent on unseen stocks. You can run this jupyter notebook directly without having to run the training since the training weights are saved in the weigths folder.
 
 
 ### Running the training 
