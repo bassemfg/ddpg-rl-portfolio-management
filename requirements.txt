@@ -48,7 +48,7 @@ conda-package-handling==1.6.0
 conda-verify==3.1.1
 contextlib2==0.6.0.post1
 cryptography==2.8
-cvxopt==1.2.3
+cvxopt==1.2.7
 cycler==0.10.0
 Cython==0.29.14
 cytoolz==0.10.1
