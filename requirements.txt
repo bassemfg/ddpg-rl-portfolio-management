@@ -177,7 +177,7 @@ optional-django==0.1.0
 packaging==19.2
 pandas==0.25.3
 pandocfilters==1.4.2
-paramiko==2.6.0
+paramiko==2.10.1
 parso==0.5.2
 partd==1.1.0
 path==13.1.0
