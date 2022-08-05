@@ -199,7 +199,7 @@ protobuf3-to-dict==0.1.5
 psutil==5.6.7
 publication==0.0.3
 py==1.8.1
-pyarrow==0.15.0
+pyarrow==0.15.1
 pyasn1==0.4.8
 pyasn1-modules==0.2.7
 pycodestyle==2.5.0
