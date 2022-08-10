@@ -157,7 +157,7 @@ msgpack==0.6.2
 multidict==4.5.2
 multipledispatch==0.6.0
 navigator-updater==0.2.1
-nbconvert==5.6.1
+nbconvert==6.3.0
 nbformat==4.4.0
 networkx==2.4
 nodejs==0.1.1
